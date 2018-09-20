@@ -72,7 +72,7 @@ logging.getLogger().addHandler(console)
 logging.info(cfg)
 
 kwargs = {'num_workers': 0, 'pin_memory': True} if cfg.cuda else {}
-gaze = dataset.Gaze()
+gaze = dataset.Gaze(cfg=cfg)
 trainset = dataset.trainset(gaze)
 testset = dataset.testset(trainset.dataset)
 train_loader = torch.utils.data.DataLoader(trainset, batch_size=cfg.batch_size, shuffle=True, **kwargs)
