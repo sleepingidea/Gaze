@@ -39,7 +39,6 @@ parser.add_argument('--ci', action='store_false' if config.default.ci else 'stor
 args = parser.parse_args()
 cfg = config.args2dataset(args)
 if cfg.ci:
-    torch.set_default_tensor_type(torch.DoubleTensor)
     cfg.batch_size = 8
     cfg.test_batch_size = 8
     cfg.epochs = 1
