@@ -44,7 +44,7 @@ class Gaze(object):
 
     def __len__(self):
 
-        return len(self.table['image_path'])
+        return len(self.table['image_path']) if not self.cfg.ci or len(self.table['image_path']) < 32 else 32
 
     def _check_files(self):
 
