@@ -72,7 +72,7 @@ class Gaze(object):
                 f.write(response.data)
             response.release_conn()
             with zipfile.ZipFile(os.path.join(self.cfg.paths.data_folder, filename), 'r') as f:
-                f.extractall()
+                f.extractall(path=self.cfg.paths.data_folder)
 
 
 class trainset(Dataset):
