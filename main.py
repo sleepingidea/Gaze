@@ -95,7 +95,7 @@ def train(epoch):
     model.train()
     criterion = torch.nn.MSELoss().to(device)
     count = 0
-    log_step = 100 if not cfg.ci else 1
+    log_step = 100 if not cfg.ci else 100
     for batch_idx, (data, target) in enumerate(train_loader):
         data, target = data.to(device), target.to(device)
         optimizer.zero_grad()
@@ -125,7 +125,7 @@ def test(epoch, n=1):
     criterion = torch.nn.MSELoss(reduction='sum').to(device)
     test_loss = 0
     count = 0
-    log_step = 10 if not cfg.ci else 1
+    log_step = 10 if not cfg.ci else 10
     with torch.no_grad():
         for batch_idx, (data, target) in enumerate(test_loader):
             data, target = data.to(device), target.to(device)
